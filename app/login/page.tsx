@@ -5,7 +5,7 @@ import InputElement from "@/components/FormElements.tsx/InputElement";
 import { GlobalContext } from "@/context";
 import { userLogin } from "@/services/login/userLogin";
 import { LoginData } from "@/types/type";
-import { inputData, loginData } from "@/utils/data";
+import { loginData } from "@/utils/data";
 import { useEffect } from "react";
 
 import Link from "next/link";

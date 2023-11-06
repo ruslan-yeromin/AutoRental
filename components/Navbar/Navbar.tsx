@@ -1,15 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { Fragment } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import { LuSettings } from "react-icons/lu";
 import { navItems } from "@/utils/data";
 import MobileNavbar from "./MobileNavbar";
+import { GlobalContext } from "@/context";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
-const isAuthUser = false;
 
 const Navbar = () => {
+  const { user, setUser, isAuthUser, setIsAuthUser } =
+    useContext(GlobalContext);
+    const router = useRouter();
+
+  const handleLogout = () => {
+    setIsAuthUser(false);
+    setUser(null);
+    Cookies.remove("token");
+    localStorage.clear();
+    // router.push('/')
+    // Will not allow other pages to be viewed by an unauthorized user and will redirect them to the home page if they are not already there.
+  };
+
   return (
     <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -55,16 +72,18 @@ const Navbar = () => {
             <CustomButton
               title="Login"
               containerStyles="button button-padding"
+              onClick={() => router.push("/login")}
             />
           ) : (
             <CustomButton
               title="Log out"
               containerStyles="button button-padding"
+              onClick={handleLogout}
             />
-          )}   
+          )}
           {/* Mobile Menu Component*/}
-            <MobileNavbar />       
-        </div>        
+          <MobileNavbar />
+        </div>
       </div>
     </nav>
   );
