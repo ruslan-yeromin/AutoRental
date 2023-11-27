@@ -99,3 +99,4 @@ export interface SlidesProps {
   bgColor: string;
   cta: string;
 }
+

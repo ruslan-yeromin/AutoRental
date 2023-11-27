@@ -6,9 +6,11 @@ import CustomButton from '../CustomButton/CustomButton'
 import { Car } from "@/types/type";
 
 
-const ProductCard = ({car}: {car: Car}) => {
+const ProductCard: React.FC<{ car: Car }> = ({ car }) => {
   return (
-    <article className='flex flex-col justify-between px-[1.5rem] py-[1.5rem] bg-white shadow-lg rounded-lg hover:shadow-2xl hover:cursor-pointer transition-all'>
+    <article 
+        className='flex flex-col justify-between px-[1.5rem] py-[1.5rem] bg-white shadow-lg rounded-lg hover:shadow-2xl hover:cursor-pointer transition-all'
+    >
         <div className='flex justify-between items-center'>
             <div className='flex flex-col'>
                 <h3 className='text-xl text-dark font-bold'>{car.name}</h3>
@@ -35,16 +37,17 @@ const ProductCard = ({car}: {car: Car}) => {
                 <p className='text-lightgray text-lg'>{car.numberOfDoors}</p>
             </div>
         </div>
-        <div className='flex justify-between items-center mt-6'>
-            <div className='flex items-center gap-2'>
+        <div className='flex flex-col mx-auto justify-between items-center mt-6'>
+            <div className='flex items-center mb-4'>
                 <p className='font-semibold'>from</p>
-                <p className='text-2xl text-dark font-bold'>{`$${car.rentalCost.moreThanTwentySixDays}/`}</p>
-                <p className='text-sm text-lightgray font-bold'> day</p>
+                <p className='text-2xl px-2 text-dark font-bold'>{`$${car.rentalCost.moreThanTwentySixDays}/`}</p>
+                <p className='text-sm text-lightgray font-bold'>day</p>
             </div>
             <div className='flex flex-col'>
                 <CustomButton 
                     title='Rent Now'
                     containerStyles='button button-padding'
+                    textStyles=''
                  />
             </div>
         </div>
