@@ -20,7 +20,7 @@ const initialFormState: SignUpData = {
   password: "",
 };
 
-const page = () => {
+const Page = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [isRegistered, setIsRegistered] = useState(false);
   const { componentLevelLoader, setComponentLevelLoader } =
@@ -136,4 +136,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

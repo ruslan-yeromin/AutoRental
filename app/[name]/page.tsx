@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const { name } = router.query;
 
@@ -25,4 +25,4 @@ const page = () => {
   return <div>page</div>;
 };
 
-export default page;
+export default Page;

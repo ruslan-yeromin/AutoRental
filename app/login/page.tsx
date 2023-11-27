@@ -19,7 +19,7 @@ const initialData: LoginData = {
   password: "",
 };
 
-const page = () => {
+const Page = () => {
   const [formData, setFormData] = useState(initialData);
   const router = useRouter();
 
@@ -130,4 +130,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
