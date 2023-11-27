@@ -115,7 +115,7 @@ const Page = () => {
 
                 <div className="">
                   <p className="font-medium">
-                    Don't have an account?{" "}
+                    Don&apos;t have an account?{" "}
                     <Link className="underline text-blue-800" href="/sign-up">
                       Sign Up
                     </Link>
