@@ -1,7 +1,17 @@
-import Image from 'next/image'
+import PopularCars from "@/components/PopularCarsSection/PopularCars";
+import Slider from "@/components/HeroSection/Slider";
+import BookingForm from "@/components/BookingForm/BookingForm";
+
+
+
 
 export default function Home() {
+
   return (
-    <h1>Hello world</h1>
+    <>
+    <Slider />
+    <BookingForm />
+    <PopularCars />
+    </>
   )
 }

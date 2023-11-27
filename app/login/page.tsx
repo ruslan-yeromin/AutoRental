@@ -10,8 +10,9 @@ import { useEffect } from "react";
 
 import Link from "next/link";
 import React, { useState, useCallback, useContext } from "react";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/Loader/Loader";
 
 const initialData: LoginData = {
   email: "",
@@ -22,7 +23,14 @@ const page = () => {
   const [formData, setFormData] = useState(initialData);
   const router = useRouter();
 
-  const { isAuthUser, setIsAuthUser, user, setUser } = useContext(GlobalContext)
+  const {
+    isAuthUser,
+    setIsAuthUser,
+    user,
+    setUser,
+    componentLevelLoader,
+    setComponentLevelLoader,
+  } = useContext(GlobalContext);
 
   const isFormValid = useCallback(() => {
     return (
@@ -35,26 +43,29 @@ const page = () => {
   }, [formData]);
 
   async function handleLogin() {
+    setComponentLevelLoader({ loading: true, id: "" });
     const response = await userLogin(formData);
-    
-    console.log('Response: ' + response)
-    if(response.success) {
+
+    console.log("Response: " + response);
+    if (response.success) {
       setIsAuthUser(true);
       setUser(response?.data?.user);
       setFormData(initialData);
-      Cookies.set('token', response?.data?.token);
-      localStorage.setItem('user', JSON.stringify(response?.data?.user));
+      Cookies.set("token", response?.data?.token);
+      localStorage.setItem("user", JSON.stringify(response?.data?.user));
+      setComponentLevelLoader({ loading: false, id: "" });
     } else {
-      setIsAuthUser(false)
+      setIsAuthUser(false);
+      setComponentLevelLoader({ loading: false, id: "" });
     }
   }
 
   useEffect(() => {
-    if(isAuthUser) {
-      router.push('/')
+    if (isAuthUser) {
+      router.push("/");
     }
-  })
-  
+  });
+
   return (
     <div className="bg-white relative">
       <div className="flex flex-col items-center justify-between py-0 px-10 mt-8 mr-auto  xl:px-5 lg:flex-row">
@@ -79,12 +90,29 @@ const page = () => {
                     }}
                   />
                 ))}
-                <CustomButton
-                  title="Login"
-                  containerStyles="button button-padding disabled"
-                  disabled={!isFormValid()}
-                  onClick={handleLogin}
-                />
+                <div className="w-full flex">
+                  {componentLevelLoader && componentLevelLoader.loading ? (
+                    <div className="flex justify-center w-full">
+                      <Loader
+                        size={60}
+                        color="#36d7b7"
+                        loading={
+                          componentLevelLoader && componentLevelLoader.loading
+                        }
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full">
+                      <CustomButton
+                        title="Login"
+                        containerStyles="w-full button button-padding disabled"
+                        disabled={!isFormValid()}
+                        onClick={handleLogin}
+                      />
+                    </div>
+                  )}
+                </div>
+
                 <div className="">
                   <p className="font-medium">
                     Don't have an account?{" "}

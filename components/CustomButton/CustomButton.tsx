@@ -10,7 +10,7 @@ const CustomButton = ({
   disabled,
 }: CustomButtonProps) => {
   return (
-    <button className={`custom-btn ${containerStyles}`} disabled={disabled} onClick={onClick}>
+    <button className={`custom-btn bg-primary ${containerStyles}`} disabled={disabled} onClick={onClick}>
       <span className={`flex-1 ${textStyles}`}>{title}</span>
       {rightIcon && <span className="ml-2">{rightIcon}</span>}
     </button>

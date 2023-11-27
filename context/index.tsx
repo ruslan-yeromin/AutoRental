@@ -1,26 +1,17 @@
 "use client";
 
-import { User } from "@/types/type";
+import { ComponentLevelLoaderState, GlobalContextProps, GlobalStateProps, User } from "@/types/type";
 import React, { createContext, useState, Dispatch, SetStateAction, useEffect } from "react";
 import Cookies from 'js-cookie'
 
-
-interface GlobalContextProps {
-  isAuthUser: boolean;
-  setIsAuthUser: Dispatch<SetStateAction<boolean>>;
-  user: User | null;
-  setUser: Dispatch<SetStateAction<User | null>>;
-}
-
-interface GlobalStateProps {
-  children: React.ReactNode;
-}
 
 const defaultGlobalContext: GlobalContextProps = {
   isAuthUser: false,
   setIsAuthUser: () => {},
   user: null,
   setUser: () => {},
+  componentLevelLoader: { loading: false, id: '' },
+  setComponentLevelLoader: (() => {})
 };
 
 export const GlobalContext = createContext<GlobalContextProps>(defaultGlobalContext);
@@ -28,6 +19,8 @@ export const GlobalContext = createContext<GlobalContextProps>(defaultGlobalCont
 export default function GlobalState({ children }: GlobalStateProps) {
   const [isAuthUser, setIsAuthUser] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>(null);
+  const [pageLevelLoader, setPageLevelLoader] = useState(false)
+  const [componentLevelLoader, setComponentLevelLoader] = useState({loading: false, id: ''})
 
   useEffect(() => {
     if(Cookies.get('token')!== undefined) {
@@ -42,7 +35,7 @@ export default function GlobalState({ children }: GlobalStateProps) {
 
   return (
     <GlobalContext.Provider
-      value={{ isAuthUser, setIsAuthUser, user, setUser }}
+      value={{ isAuthUser, setIsAuthUser, user, setUser, componentLevelLoader, setComponentLevelLoader }}
     >
       {children}
     </GlobalContext.Provider>

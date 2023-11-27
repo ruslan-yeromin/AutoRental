@@ -1,3 +1,5 @@
+import { SlidesProps } from "@/types/type"
+
 export const navItems = [
     {
         id: 'cars',
@@ -55,4 +57,31 @@ export const loginData = [
         placeholder: 'Enter your passw0rd',
         label: 'Your password',
     },
+]
+
+export const slides: SlidesProps[] = [
+    {
+        id: 1,
+        title: "A Legend in Action",
+        description: "Experience Exceptional Comfort and Performance with BMW 5 Series",
+        imgUrl: "/slides/bmw-slide.webp",
+        bgColor: "#2D2D2D",
+        cta: "Rent from $80/day"
+    },
+    {
+        id: 2,
+        title: "Electrify Your Journey",
+        description: "Take the Wheel of the Future with Tesla Model S",
+        imgUrl: "/slides/tesla-slide.webp",
+        bgColor: "#8B0000",
+        cta: "Rent from $95/day"
+    },
+    {
+        id: 3,
+        title: "Economy Meets Comfort",
+        description: "Enjoy Dependability and Style with Hyundai Accent",
+        imgUrl: "/slides/hyundai-slide.webp",
+        bgColor: "#A9A9A9",
+        cta: "Rent from $24/day"
+    }
 ]
