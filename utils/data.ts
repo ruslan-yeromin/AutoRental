@@ -4,7 +4,7 @@ export const navItems = [
     {
         id: 'cars',
         label: 'Cars',
-        url: '/',
+        url: '/car',
     },
     {
         id: 'offers',

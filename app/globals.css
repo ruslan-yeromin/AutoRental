@@ -57,3 +57,8 @@ h1, h2, h3, h4, h5, h6 {
 .skeleton {
   animation: skeletonLoading 1.5s infinite ease-in-out;
 }
+
+input[type="checkbox"] {
+  transform: scale(1.5); /* Увеличить размер в 1.5 раза */
+  margin: 10px; /* Добавить немного пространства вокруг чекбокса */
+}

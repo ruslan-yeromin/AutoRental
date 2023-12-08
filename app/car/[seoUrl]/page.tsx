@@ -48,7 +48,7 @@ const CarPage = () => {
       <Rating totalReviews={car?.reviews.length || 0} />
       {!car ? <PhotoGallerySkeleton /> : <PhotoGallery images={car.images} />}
       <div className="flex flex-col-reverse lg:flex-row gap-10 w-full">
-        <div className="max-w-[60%]">
+        <div className="w-full lg:max-w-[60%]">
           <CarFeatures
             bodyType={car?.bodyType || ""}
             engineVolume={car?.engineVolume || 0}
@@ -74,7 +74,7 @@ const CarPage = () => {
           />
           <AddNewReview carLink={car?.seoUrl || ''} />
         </div>
-        <div className="max-w-[40%] flex-1">
+        <div className="w-full lg:max-w-[40%] flex-1">
           <PriceBlock
             rentalCost={
               car?.rentalCost || {

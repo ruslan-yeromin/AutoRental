@@ -4,6 +4,7 @@ import { BiMenuAltRight, BiMenu } from "react-icons/bi";
 import { navItems } from "@/utils/data";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const Variants = {
   open: {
@@ -45,7 +46,7 @@ const MobileNavbar = () => {
                     key={item.id}
                     className="cursor-pointer relative line-animations text-gray-700 rounded  hover:text-gray-900 transition-all"
                   >
-                    {item.label}
+                    <Link href={item.url}>{item.label}</Link>
                   </li>
                 ))}
               </ul>

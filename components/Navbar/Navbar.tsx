@@ -48,7 +48,7 @@ const Navbar = () => {
                 key={item.id}
                 className="cursor-pointer relative line-animations text-gray-700 rounded  hover:text-gray-900 transition-all"
               >
-                {item.label}
+                <Link href={item.url}>{item.label}</Link>
               </li>
             ))}
           </ul>

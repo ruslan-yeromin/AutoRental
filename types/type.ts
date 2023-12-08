@@ -152,3 +152,10 @@ export interface ProductReviewsProps {
 export interface ReviewProps {
   reviews: ProductReviewsProps[];
 }
+
+export interface QueryConditions {
+  bodyType?: string | { $in: string[] };
+  transmissionType?: string;
+  fuelType?: string;
+  carClass?: string;
+}
