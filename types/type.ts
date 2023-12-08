@@ -7,6 +7,7 @@ export interface CustomButtonProps {
   rightIcon?: React.ReactNode;
   textStyles?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export interface InputElementProps {
@@ -100,3 +101,54 @@ export interface SlidesProps {
   cta: string;
 }
 
+export interface StarRatingProps {
+  totalReviews: number;
+}
+
+export interface ProductTitleProps {
+  carTitle: string;
+}
+
+export interface ProductDescProps {
+  carDesc: string;
+}
+
+export interface CarFeaturesProps {
+  bodyType: string;
+  engineVolume: number;
+  transmissionType: string;
+  fuelType: string;
+  trunkVolume: number;
+  numberOfDoors: number;
+  airConditioner: boolean;
+  fuelConsumption: number;
+}
+
+export interface FeaturesItemProps {
+  Icon: React.FC<{ className?: string }>;
+  title: string;
+  data: string;
+}
+
+export interface RentalCost {
+  oneToThreeDays: number;
+  fourToNineDays: number;
+  tenToTwentyFiveDays: number;
+  moreThanTwentySixDays: number;
+}
+
+export interface PriceBlockProps {
+  rentalCost: RentalCost;
+  deposit: number;
+}
+
+export interface ProductReviewsProps {
+  _id: string;
+  authorName: string;
+  review: string;
+  date: Date;
+}
+
+export interface ReviewProps {
+  reviews: ProductReviewsProps[];
+}

@@ -1,12 +1,14 @@
 import connectToDB from "@/services/database/database";
 import Car from "@/services/models/Car";
 import { NextApiRequest, NextApiResponse } from "next";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export default async function getCarBySeoUrl(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {
   await connectToDB();
+  noStore();
 
   if (req.method !== "GET") {
     res.status(405).json({ success: false, message: "Method not allowed" });

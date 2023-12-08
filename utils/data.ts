@@ -85,3 +85,10 @@ export const slides: SlidesProps[] = [
         cta: "Rent from $24/day"
     }
 ]
+
+export const includedServices = [
+    "Fair Fuel Policy",
+    "Full Insurance Coverage",
+    "Unlimited Miles",
+    "24/7 Roadside Assistance"
+  ];

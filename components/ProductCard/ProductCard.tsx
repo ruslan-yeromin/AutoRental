@@ -14,34 +14,34 @@ const ProductCard: React.FC<{ car: Car }> = ({ car }) => {
         <div className='flex justify-between items-center'>
             <div className='flex flex-col'>
                 <h3 className='text-xl text-dark font-bold'>{car.name}</h3>
-                <p className='text-sm text-lightgray font-bold'>{car.carClass}</p>
+                <p className='text-sm text-gray-500 font-bold'>{car.carClass}</p>
             </div>
             <div className='flex flex-col'>
-                <AiOutlineHeart className='text-2xl' />
+                <AiOutlineHeart className='text-red text-2xl' />
             </div>
         </div>
-        <div>
+        <div className='h-[200px]'>
             <Image width={600} height={400} src={car.imgUrl} alt='Image name'/>
         </div>
         <div className='flex justify-between'>
             <div className='flex gap-2 items-center'>
-                <GiGasPump className='text-lightgray text-xl' />
-                <p className='text-lightgray text-lg'>{car.fuelType}</p>
+                <GiGasPump className='text-primary text-xl' />
+                <p className='text-gray-500 text-lg'>{car.fuelType}</p>
             </div>
             <div className='flex gap-2 items-center'>
-                <GiSteeringWheel className='text-lightgray text-xl' />
-                <p className='text-lightgray text-lg'>{car.transmissionType}</p>
+                <GiSteeringWheel className='text-primary text-xl' />
+                <p className='text-gray-500 text-lg'>{car.transmissionType}</p>
             </div>
             <div className='flex gap-2 items-center'>
-                <GiCarDoor className='text-lightgray text-xl' />
-                <p className='text-lightgray text-lg'>{car.numberOfDoors}</p>
+                <GiCarDoor className='text-primary text-xl' />
+                <p className='text-gray-500 text-lg'>{car.numberOfDoors}</p>
             </div>
         </div>
         <div className='flex flex-col mx-auto justify-between items-center mt-6'>
             <div className='flex items-center mb-4'>
                 <p className='font-semibold'>from</p>
                 <p className='text-2xl px-2 text-dark font-bold'>{`$${car.rentalCost.moreThanTwentySixDays}/`}</p>
-                <p className='text-sm text-lightgray font-bold'>day</p>
+                <p className='text-sm text-gray-500 font-bold'>day</p>
             </div>
             <div className='flex flex-col'>
                 <CustomButton 

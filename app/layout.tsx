@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <GlobalState>
           <Navbar />
-          <main className='flex flex-col min-h-screen mt-[5rem]'>
+          <main className='flex flex-col min-h-[5000px] mt-[5rem] bg-lightgray'>
             {children}
           </main>
         </GlobalState>
